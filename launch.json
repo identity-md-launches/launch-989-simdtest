@@ -1,0 +1,24 @@
+{
+  "kind": "custom_token",
+  "token": {
+    "contract": "SIMDTESTToken",
+    "name": "SIMDTEST",
+    "symbol": "SIMDTEST",
+    "decimals": 18,
+    "constructorArgs": [],
+    "totalSupply": "1000000000000000000000000000"
+  },
+  "contracts": [],
+  "pool": {
+    "pairedCurrency": "0xd34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7",
+    "fee": 3000,
+    "tickSpacing": 60,
+    "initialPrice": "125270724187523965593206900"
+  },
+  "economics": {
+    "poolBps": 9000,
+    "initialMarketCapWei": "2500000000000000000000",
+    "remainderTo": "0x000000000000000000000000000000000000dead"
+  },
+  "notes": "Ethereum mainnet (chain ID 1). Constructor mints the entire fixed supply to the deploying launch factory. The factory handles the swarm distribution, Uniswap v4 pool seed and remainder. initialPrice is provenance only, quoted with SIMDTEST as currency0; the deployer derives the opening sqrtPriceX96 from economics and the deployed currency order."
+}
