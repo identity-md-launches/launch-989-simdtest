@@ -20,5 +20,5 @@
     "initialMarketCapWei": "2500000000000000000000",
     "remainderTo": "0x000000000000000000000000000000000000dead"
   },
-  "notes": "Ethereum mainnet (chain ID 1). Constructor mints the entire fixed supply to the deploying launch factory. The factory handles the swarm distribution, Uniswap v4 pool seed and remainder. initialPrice is provenance only, quoted with SIMDTEST as currency0; the deployer derives the opening sqrtPriceX96 from economics and the deployed currency order."
+  "notes": "Ethereum mainnet (chain ID 1). SIMDTESTToken has no constructor arguments and mints 1,000,000,000 SIMDTEST with 18 decimals once to msg.sender, the deploying launch factory. Supply is fixed forever. Transfers are plain ERC-20 with no fee, tax or limit. There is no owner, admin, post-launch minting, proxy or upgradeability. No application contracts or initialization calls are required. The external launch factory handles distribution and pool seeding; SIMDTESTToken does not distribute its constructor balance. Swaps use Uniswap v4 PoolManager 0x000000000004444c5dc75cB358380D2e3dE08A90. initialPrice is provenance only, expressed as sqrtPriceX96 for paired-currency minor units per SIMDTEST minor unit with SIMDTEST as currency0. The deployer derives the actual opening price from economics.initialMarketCapWei, totalSupply and deployed currency order."
 }
