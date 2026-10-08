@@ -321,6 +321,7 @@ contract SIMDTESTTokenTest is TestSupport {
         }
     }
 
+    /// forge-config: default.fuzz.runs = 1000
     function testFuzzTransfersConserveSupply(uint256 rawAmount, address recipient) public {
         if (recipient == address(0) || recipient == address(this)) return;
         uint256 amount = rawAmount % (SUPPLY + 1);
@@ -331,6 +332,7 @@ contract SIMDTESTTokenTest is TestSupport {
         assertEq(token.totalSupply(), SUPPLY);
     }
 
+    /// forge-config: default.fuzz.runs = 1000
     function testFuzzAllowanceConservation(uint256 rawAllowance, uint256 rawSpend) public {
         uint256 approved = rawAllowance % (SUPPLY + 1);
         uint256 spend = rawSpend % (approved + 1);
@@ -343,6 +345,7 @@ contract SIMDTESTTokenTest is TestSupport {
         assertEq(token.totalSupply(), SUPPLY);
     }
 
+    /// forge-config: default.fuzz.runs = 1000
     function testFuzzOverdrawRevertsWithoutChangingState(uint256 rawExcess) public {
         uint256 excessive = SUPPLY + 1 + rawExcess % (type(uint256).max - SUPPLY);
         vm.expectRevert(
@@ -354,6 +357,7 @@ contract SIMDTESTTokenTest is TestSupport {
         assertEq(token.totalSupply(), SUPPLY);
     }
 
+    /// forge-config: default.fuzz.runs = 1000
     function testFuzzTransferSequenceConservesSupply(uint256[24] memory amounts) public {
         address[3] memory actors = [address(this), ALICE, BOB];
         for (uint256 i; i < amounts.length; ++i) {
